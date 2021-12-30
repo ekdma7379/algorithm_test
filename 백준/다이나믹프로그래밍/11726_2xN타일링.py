@@ -26,3 +26,16 @@
 
 # 1, 2번의 경우와 중복되기 때문에 고려하지 않는다.
 
+import sys
+n = int(sys.stdin.readline())
+
+dp = [0 for i in range(n+1)]
+
+dp[1] = 1
+
+dp[2] = 2
+
+for i in range(3,n+1):
+    dp[i] = dp[i-2] + dp[i-1]
+
+print(dp[n]%10007)
